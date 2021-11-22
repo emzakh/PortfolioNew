@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import LogoComponent from '../subComponents/LogoComponent'
+import PowerButton from '../subComponents/PowerButton'
+import SocialIcons from '../subComponents/SocialIcons'
 
 
 const MainContainer = styled.div`
@@ -25,8 +28,9 @@ const Main = () => {
     return (
         <MainContainer>
           <Container>
-          Main Component/Page
-
+              <PowerButton/>      
+              <LogoComponent/>
+              <SocialIcons/>
           </Container>
         </MainContainer>
     )
