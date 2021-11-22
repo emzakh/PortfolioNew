@@ -10,7 +10,7 @@ top: 50%;
 transform: translate(-50%, -50%);
 
 
-width: 55vw;
+width: 65vw;
 height:45vh;
 display: flex;
 
