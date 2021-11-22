@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
 import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
+import { Mandala } from './AllSvgs'
 
 
 const MainContainer = styled.div`
@@ -76,8 +77,41 @@ color:${props=>props.theme.text};
 text-decoration:none;
 z-index:1;
 `
+//from styled-components
+const rotate = keyframes`
+from{
+    transform:rotate(0);
+    
+}
+to{
+    transform:rotate(360deg);
+}
+`
 
 
+const Center = styled.button`
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+border:none;
+outline:none;
+background-color:transparent;
+cursor:pointer;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+&>:first-child{
+    animation:${rotate} infinite 5s linear;
+}
+&>:last-child{
+    padding-top:1rem;
+}
+
+`
 
 const Main = () => {
     return (
@@ -87,24 +121,26 @@ const Main = () => {
               <LogoComponent/>              
               <SocialIcons/>
 
+              <Center>
+                  <Mandala width={200} height={200} fill ='currentColor'/>
+                  <span>click here</span>
+              </Center>
+
               <Contact target="_blank" to={{pathname:"mailto:massimino.gutierrezmantione@gmail.com"}}>
                 <h2>
                     Say hi...
                 </h2>
               </Contact>
-
               <BLOG to="/blog">
                 <h2>
                     Blog
                 </h2>
               </BLOG>
-
               <WORK to="/work">
                 <h2>
                     Work
                 </h2>
               </WORK>
-
               <BottomBar>
                     <ABOUT to="/about">
                         <h2>
