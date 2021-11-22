@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mandala" class="svg-inline--fa fa-mandala fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"></svg>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1648.947 1645.307" enable-background="new 0 0 1648.947 1645.307" xml:space="preserve">
 <g>
@@ -4617,4 +4615,9 @@
 	<path d="M923.931,781.903c0.811,0.334,1.61,0.666,2.418,1c0.559-1.033,1.116-2.062,1.672-3.09c-0.414,0.04-0.836,0.082-1.253,0.122
 		C925.818,780.596,924.877,781.248,923.931,781.903z"/>
 </g>
+
+
+
+
+
 </svg>

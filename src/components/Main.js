@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled, {keyframes} from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
@@ -91,8 +91,8 @@ to{
 
 const Center = styled.button`
 position:absolute;
-top:50%;
-left:50%;
+top:${props => props.click ? '85%' : '50%'};
+left:${props => props.click ? '85%' : '50%'};
 transform:translate(-50%,-50%);
 border:none;
 outline:none;
@@ -103,17 +103,24 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+transition: all 1s ease;
 
 &>:first-child{
     animation:${rotate} infinite 5s linear;
 }
 &>:last-child{
+    display: ${props => props.click ? 'none' : 'inline-block'};
     padding-top:1rem;
 }
 
 `
 
 const Main = () => {
+
+    const [click, setClick] = useState(false);
+
+    const handleClick = () => setClick(!click);
+
     return (
         <MainContainer>
           <Container>
@@ -121,8 +128,8 @@ const Main = () => {
               <LogoComponent/>              
               <SocialIcons/>
 
-              <Center>
-                  <Mandala width={200} height={200} fill ='currentColor'/>
+              <Center click={click}>
+                  <Mandala onClick={()=>handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill ='currentColor'/>
                   <span>click here</span>
               </Center>
 
