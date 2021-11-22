@@ -40,12 +40,7 @@ const SocialIcons = () => {
                 <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://twitter.com/MGMaximino"}}>
                     <Twitter width={30} height={30} fill='currentColor'/>
                 </NavLink>
-            </div>
-            <div>
-                <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://github.com/mgmaximino"}}>
-                    <Facebook width={30} height={30} fill='currentColor'/>
-                </NavLink>
-            </div>
+            </div>       
             <div>
                 <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://www.youtube.com/channel/UCzadYEGdS1Rzl0wdtq8r8tg"}}>
                     <YouTube width={30} height={30} fill='currentColor'/>
