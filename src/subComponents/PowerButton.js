@@ -12,7 +12,7 @@ transform: translate(-50%, 0);
 background-color:#FCF6F4;
 padding: 0.3rem;
 border-radius:50%;
-border:1px solid #000000;
+border:2px solid #000000;
 width:2.5rem;
 height:2.5rem;
 
