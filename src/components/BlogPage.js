@@ -3,7 +3,7 @@ import {useEffect, useState } from "react";
 import styled from 'styled-components'
 import img from "../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg"
 import LogoComponent from '../subComponents/LogoComponent'
-import PowerButton from '../subComponents/PowerButton'
+// import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
 import BlogComponent from './BlogComponent'
 import BigTitle from "../subComponents/BigTitle"
@@ -60,7 +60,7 @@ const BlogPage = () => {
      <MainContainer>
         <Container>
             <LogoComponent/>
-            <PowerButton/>
+            {/* <PowerButton/> */}
             <SocialIcons/>
             <AnchorComponent number={number} />
             <Center>

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {darkTheme, mediaQueries} from '../components/Themes'
+import { NavLink } from 'react-router-dom'
 
 
 const Logo = styled.h1`
@@ -24,9 +25,12 @@ top:2rem;
 
 const LogoComponent = (props) => {
     return (
-        <Logo color={props.theme}>
+
+        <NavLink to="/" >
+        <Logo to="/" color={props.theme}>
             MGM
         </Logo>
+        </NavLink>
     )
 }
 

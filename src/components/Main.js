@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import LogoComponent from "../subComponents/LogoComponent";
-import PowerButton from "../subComponents/PowerButton";
+// import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
 import { Mandala } from "./AllSvgs";
 import Intro from "./Intro";
@@ -50,8 +50,8 @@ const Contact = styled(NavLink)`
 `;
 
 const BLOG = styled(NavLink)`
-  color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
-  position: absolute;
+color: ${(props) => props.click ? props.theme.body : props.theme.text};
+position: absolute;
   top: 50%;
   right: calc(1rem + 2vw);
   transform: rotate(90deg) translate(-50%, -50%);
@@ -174,17 +174,19 @@ const DarkDiv = styled.div`
 
 const Main = () => {
   const [click, setClick] = useState(false);
+  const [path, setpath] = useState("");
 
   const handleClick = () => setClick(!click);
-  const mq = window.matchMedia("(max-width: 50em)").matches;
+  
+  const mediaQuery = window.matchMedia("(max-width: 50em)").matches;
 
   return (
     <MainContainer>
       <DarkDiv click={click} />
       <Container>
-        <PowerButton />
+        {/* <PowerButton /> */}
         <LogoComponent theme={click ? 'dark' : 'light'}/>
-        {mq ? (
+        {mediaQuery ? (
             <SocialIcons theme="light" />
           ) : (
             <SocialIcons theme={click ? "dark" : "light"} />
@@ -210,16 +212,25 @@ const Main = () => {
           >
         Say hi...</motion.h2>
         </Contact>
-        <BLOG to="/blog" click={click}>
-
-            
-        <motion.h2
-          whileHover={{scale:1.1}}
-          whileTap={{scale:0.9}}
-          >
-        Blog
-        </motion.h2>
-        </BLOG>
+        {mediaQuery ? (
+            <BLOG click={+click}  to="/blog">
+              <motion.h2         
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Blog
+              </motion.h2>
+            </BLOG>
+          ) : (
+            <BLOG click={+false} to="/blog">
+              <motion.h2           
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Blog
+              </motion.h2>
+            </BLOG>
+          )}
         <WORK to="/work" click={click}>
           <motion.h2
                  whileHover={{scale:1.1}}
@@ -228,13 +239,17 @@ const Main = () => {
         </WORK>
 
         <BottomBar>
-          <ABOUT to="/about" click={click}>
+          <ABOUT
+          onClick={() => setClick(false)}
+          click={mediaQuery ? +false : +click}
+          to="/about"
+          >
             <motion.h2
                    whileHover={{scale:1.1}}
                    whileTap={{scale:0.9}}
             >About.</motion.h2>
           </ABOUT>
-          <SKILLS to="/skills">
+          <SKILLS to="/skills" click={click}>
             <motion.h2
                    whileHover={{scale:1.1}}
                    whileTap={{scale:0.9}}
