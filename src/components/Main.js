@@ -1,14 +1,21 @@
 import { motion } from 'framer-motion';
-import React, { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import LogoComponent from "../subComponents/LogoComponent";
 // import PowerButton from "../subComponents/PowerButton";
-import SocialIcons from "../subComponents/SocialIcons";
+
 import { Mandala } from "./AllSvgs";
 import Intro from "./Intro";
 import { mediaQueries } from "./Themes";
-const MainContainer = styled.div`
+import Loading from "../subComponents/Loading";
+
+
+
+const SocialIcons = lazy(() => import("./../subComponents/SocialIcons"));
+
+const LogoComponent = lazy(() => import("./../subComponents/LogoComponent"));
+
+const MainContainer = styled(motion.div)`
   background: ${(props) => props.theme.body};
   width: 100vw;
   height: 100vh;
@@ -177,11 +184,24 @@ const Main = () => {
   const [path, setpath] = useState("");
 
   const handleClick = () => setClick(!click);
-  
+  const moveY = {
+    y: "-100%",
+  };
+  const moveX = {
+    x: `${path === "work" ? "100%" : "-100%"}`,
+  };
   const mediaQuery = window.matchMedia("(max-width: 50em)").matches;
 
   return (
-    <MainContainer>
+    <Suspense fallback={<Loading />}>
+
+    <MainContainer
+    key="modal"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={path === "about" || path === "skills" ? moveY : moveX}
+    transition={{ duration: 0.5 }}
+  >
       <DarkDiv click={click} />
       <Container>
         {/* <PowerButton /> */}
@@ -207,14 +227,31 @@ const Main = () => {
           to={{ pathname: "mailto:massimino.gutierrezmantione@gmail.com" }}
         >
           <motion.h2
+             initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
           whileHover={{scale:1.1}}
           whileTap={{scale:0.9}}
           >
-        Say hi...</motion.h2>
+        Say hi...
+        </motion.h2>
         </Contact>
         {mediaQuery ? (
-            <BLOG click={+click}  to="/blog">
-              <motion.h2         
+            <BLOG click={+click} onClick={() => setpath("blog")} to="/blog">
+              <motion.h2
+                initial={{
+                  y: -200,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
+                animate={{
+                  y: 0,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -223,7 +260,15 @@ const Main = () => {
             </BLOG>
           ) : (
             <BLOG click={+false} to="/blog">
-              <motion.h2           
+              <motion.h2    
+                initial={{
+                  y: -200,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}
+                animate={{
+                  y: 0,
+                  transition: { type: "spring", duration: 1.5, delay: 1 },
+                }}       
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -233,6 +278,15 @@ const Main = () => {
           )}
         <WORK to="/work" click={click}>
           <motion.h2
+             onClick={() => setpath("work")}
+             initial={{
+               y: -200,
+               transition: { type: "spring", duration: 1.5, delay: 1 },
+             }}
+             animate={{
+               y: 0,
+               transition: { type: "spring", duration: 1.5, delay: 1 },
+             }}
                  whileHover={{scale:1.1}}
                  whileTap={{scale:0.9}}
           >Work</motion.h2>
@@ -245,12 +299,31 @@ const Main = () => {
           to="/about"
           >
             <motion.h2
+            
+             onClick={() => setpath("about")}
+             initial={{
+               y: 200,
+               transition: { type: "spring", duration: 1.5, delay: 1 },
+             }}
+             animate={{
+               y: 0,
+               transition: { type: "spring", duration: 1.5, delay: 1 },
+             }}
                    whileHover={{scale:1.1}}
                    whileTap={{scale:0.9}}
             >About.</motion.h2>
           </ABOUT>
           <SKILLS to="/skills" click={click}>
             <motion.h2
+             onClick={() => setpath("skills")}
+             initial={{
+               y: 200,
+               transition: { type: "spring", duration: 1.5, delay: 1 },
+             }}
+             animate={{
+               y: 0,
+               transition: { type: "spring", duration: 1.5, delay: 1 },
+             }}
                    whileHover={{scale:1.1}}
                    whileTap={{scale:0.9}}
             >My Skills.</motion.h2>
@@ -259,6 +332,8 @@ const Main = () => {
       </Container>
       {click ? <Intro click={click}/> : null}
     </MainContainer>
+    </Suspense>
+
   );
 };
 
