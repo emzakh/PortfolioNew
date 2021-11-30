@@ -6,7 +6,7 @@ import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
 import BlogComponent from './BlogComponent'
 import BigTitle from "../subComponents/BigTitle"
-
+import AnchorComponent from '../subComponents/Anchor'
 import {Blogs} from '../data/BlogData'
 
 const MainContainer = styled.div`
@@ -45,6 +45,7 @@ const BlogPage = () => {
             <LogoComponent/>
             <PowerButton/>
             <SocialIcons/>
+            <AnchorComponent/>
             <Center>
                 <Grid>
                 {

@@ -17,3 +17,4 @@ export const darkTheme = {
     bodyRgba : "252, 246, 244",
     textRgba:"0,0,0",
 }
+

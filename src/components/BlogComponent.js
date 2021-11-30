@@ -72,7 +72,7 @@ const BlogComponent = (props) => {
             <Hashtags>
                 {
                     tags.map((t,id)=>{
-                        return <Tag>#{t}</Tag>
+                        return <Tag key={id}>#{t}</Tag>
                     })
                 }
             </Hashtags>

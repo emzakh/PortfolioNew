@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5,h6{
 body{
     margin:0;
     padding:0;
-    overflow-y:hidden;
+    overflow-x:hidden;
     font-family:'Source Sans Pro', sans-serif;
 }
 
