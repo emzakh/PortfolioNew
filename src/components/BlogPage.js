@@ -1,4 +1,5 @@
-import React from 'react'
+import {useEffect, useState } from "react";
+
 import styled from 'styled-components'
 import img from "../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg"
 import LogoComponent from '../subComponents/LogoComponent'
@@ -39,13 +40,19 @@ grid-gap: calc(1rem + 2vw);
 
 
 const BlogPage = () => {
+    const [number, setNumber] = useState(0);
+
+    useEffect(() => {
+        let num = (window.innerHeight - 70) / 30;
+        setNumber(parseInt(num));
+      }, []);
     return (
      <MainContainer>
         <Container>
             <LogoComponent/>
             <PowerButton/>
             <SocialIcons/>
-            <AnchorComponent/>
+            <AnchorComponent number={number} />
             <Center>
                 <Grid>
                 {
