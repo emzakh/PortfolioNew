@@ -6,7 +6,7 @@ import { Anchor, Link } from "../components/AllSvgs";
 
 const Container = styled.div`
 position: relative;
-`
+`;
 
 const Slider = styled.div`
 position: fixed;
@@ -22,7 +22,18 @@ transform:translateY(-50%);
     transform:rotate(135deg);
 }
 
-`
+`;
+
+const PreDisplay = styled.div`
+  position:absolute;
+  top:0;
+  right:2rem;
+
+ 
+
+
+}
+`;
 
 const AnchorComponent = () => {
 
@@ -35,11 +46,18 @@ const AnchorComponent = () => {
             let scrollPosition = window.pageYOffset;
             let windowSize = window.innerHeight;
             let bodyHeight = document.body.offsetHeight;
-
+      
             let diff = Math.max(bodyHeight - (scrollPosition + windowSize));
+            //diff*100/scrollposition
             let diffP = (diff * 100) / (bodyHeight - windowSize);
-
+      
             ref.current.style.transform = `translateY(${-diffP}%)`;
+      
+            if (window.pageYOffset > 5) {
+              hiddenRef.current.style.display = "none";
+            } else {
+              hiddenRef.current.style.display = "block";
+            }
         }
         
         window.addEventListener('scroll', handleScroll)
@@ -51,10 +69,20 @@ const AnchorComponent = () => {
 
     return (
         <Container>
+            <PreDisplay ref={hiddenRef} className="hidden">
+            <Anchor width={70} height={70} fill="currentColor" />
+      </PreDisplay>
             <Slider ref={ref}>
                 {
                     [...Array(25)].map((x,id)=>{
-                        return <Link key={id} width={25} height={25} fill='currentColor' className="chain" />
+                        return <Link
+                        key={id}
+                        style={{ padding: "0.1rem 0" }}
+                        width={25}
+                        height={25}
+                        fill="currentColor"
+                        className="chain"
+                      />
                     })
                 }
                 <Anchor width={70} height={70} fill='currentColor'/>
