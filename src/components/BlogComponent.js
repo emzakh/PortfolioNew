@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { mediaQueries } from "./Themes";
 
 
 
@@ -24,7 +25,23 @@ z-index:5;
     background-color: ${props=>props.theme.text};
     transition: all 0.3s ease;
 }
+${mediaQueries(50)`
+width:calc(60vw);
 
+`};
+${mediaQueries(30)`
+
+height:18rem;
+
+`};
+
+${mediaQueries(25)`
+
+height:14rem;
+padding:0.8rem;
+backdrop-filter: none;
+
+`};
 
 `
 

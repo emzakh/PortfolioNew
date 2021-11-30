@@ -19,7 +19,7 @@ height:2.5rem;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:3;
+z-index:6;
 
 cursor:pointer;
 
