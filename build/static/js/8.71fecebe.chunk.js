@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-portfolio-starter-code-files"]=this["webpackJsonpreact-portfolio-starter-code-files"]||[]).push([[8],{61:function(e,t,o){"use strict";o.r(t);o(0);var r=o(2);t.default=function(){return Object(r.jsx)("div",{children:"MySkillsPage Component/Page"})}}}]);
+//# sourceMappingURL=8.71fecebe.chunk.js.map

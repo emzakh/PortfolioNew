@@ -35,13 +35,12 @@ left: 1rem;
 `};
 `
 
-const Line = styled.span`
-width:2px;
-height:8rem;
-background-color:${props=>props.color ==='dark' ? darkTheme.text : darkTheme.body}
-
-
-`
+const Line = styled(motion.span)`
+  width: 2px;
+  height: 8rem;
+  background-color: ${(props) =>
+    props.color === "dark" ? darkTheme.text : darkTheme.body};
+`;
 
 const SocialIcons = (props) => {
     const mq = window.matchMedia("(max-width: 40em)").matches;
