@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { Github, Twitter, YouTube } from '../components/AllSvgs'
 import styled from 'styled-components'
 import {darkTheme, mediaQueries} from '../components/Themes'
+import { motion } from 'framer-motion';
 
 const Icons = styled.div`
 display:flex;
@@ -47,29 +48,74 @@ const SocialIcons = (props) => {
 
     return (
         <Icons>
-            <div>
-                <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://github.com/mgmaximino"}}>
-                    <Github width={30} height={30} fill={props.theme === "dark" ? darkTheme.text : darkTheme.body }/>
-                </NavLink>
-            </div>
-            <div>
-                <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://twitter.com/MGMaximino"}}>
-                    <Twitter width={30} height={30} fill={props.theme === "dark" ? darkTheme.text : darkTheme.body }/>
-                </NavLink>
-            </div>       
-            <div>
-                <NavLink style={{color:'inherit'}} target="_blank" to={{pathname:"https://www.youtube.com/channel/UCzadYEGdS1Rzl0wdtq8r8tg"}}>
-                    <YouTube width={30} height={30} fill={props.theme === "dark" ? darkTheme.text : darkTheme.body }/>
-                </NavLink>
-            </div>
-
-             <Line
-        initial={{ height: 0 }}
-        animate={{ height: mq ? "5rem" : "8rem" }}
-        color={props.theme}
-        transition={{ type: "spring", duration: 1, delay: 0.8 }}
-      />
-        </Icons>
+        <motion.div
+          initial={{ transform: "scale(0)" }}
+          animate={{ scale: [0, 1, 1.5, 1] }}
+          transition={{ type: "spring", duration: 1, delay: 1 }}
+        >
+          <NavLink
+            style={{ color: "inherit" }}
+            target="_blank"
+            to={{ pathname:"https://github.com/mgmaximino" }}
+          >
+            <Github
+              width={25}
+              height={25}
+              fill={
+                props.theme === "dark" ? `${darkTheme.text}` : `${darkTheme.body}`
+              }
+            />
+          </NavLink>
+        </motion.div>
+        <motion.div
+          initial={{ transform: "scale(0)" }}
+          animate={{ scale: [0, 1, 1.5, 1] }}
+          transition={{ type: "spring", duration: 1, delay: 1.2 }}
+        >
+          <NavLink
+            style={{ color: "inherit" }}
+            target="_blank"
+            to={{ pathname: "https://twitter.com/MGMaximino" }}
+          >
+            <Twitter
+              width={25}
+              height={25}
+              fill={
+                props.theme === "dark" ? `${darkTheme.text}` : `${darkTheme.body}`
+              }
+            />
+          </NavLink>
+        </motion.div>
+        <motion.div
+          initial={{ transform: "scale(0)" }}
+          animate={{ scale: [0, 1, 1.5, 1] }}
+          transition={{ type: "spring", duration: 1, delay: 1.6 }}
+        >
+          <NavLink
+            style={{ color: "inherit" }}
+            target="_blank"
+            to={{
+              pathname:
+                "https://www.youtube.com/channel/UCzadYEGdS1Rzl0wdtq8r8tg",
+            }}
+          >
+            <YouTube
+              width={25}
+              height={25}
+              fill={
+                props.theme === "dark" ? `${darkTheme.text}` : `${darkTheme.body}`
+              }
+            />
+          </NavLink>
+        </motion.div>
+  
+        <Line
+          initial={{ height: 0 }}
+          animate={{ height: mq ? "5rem" : "8rem" }}
+          color={props.theme}
+          transition={{ type: "spring", duration: 1, delay: 0.8 }}
+        />
+      </Icons>
     )
 }
 
