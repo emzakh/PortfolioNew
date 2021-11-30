@@ -57,5 +57,29 @@ export const Blogs = [
         imgSrc:"https://imgur.com/0XspKDS.jpg",
         link:"https://www.youtube.com/watch?v=7Ynd_-j7_rU"
     },  
+    {
+        id:8,
+        name:"Interview BES Webdeveloper",
+        tags:["interview","epse","webdev"],
+        date:"22 April, 2021",
+        imgSrc:"https://imgur.com/0XspKDS.jpg",
+        link:"https://www.youtube.com/watch?v=7Ynd_-j7_rU"
+    },  
+    {
+        id:9,
+        name:"Interview BES Webdeveloper",
+        tags:["interview","epse","webdev"],
+        date:"22 April, 2021",
+        imgSrc:"https://imgur.com/0XspKDS.jpg",
+        link:"https://www.youtube.com/watch?v=7Ynd_-j7_rU"
+    },  
+    {
+        id:10,
+        name:"Interview BES Webdeveloper",
+        tags:["interview","epse","webdev"],
+        date:"22 April, 2021",
+        imgSrc:"https://imgur.com/0XspKDS.jpg",
+        link:"https://www.youtube.com/watch?v=7Ynd_-j7_rU"
+    },  
   
 ] 

@@ -43,6 +43,8 @@ background-color:${props=>props.color ==='dark' ? darkTheme.text : darkTheme.bod
 `
 
 const SocialIcons = (props) => {
+    const mq = window.matchMedia("(max-width: 40em)").matches;
+
     return (
         <Icons>
             <div>
@@ -61,7 +63,12 @@ const SocialIcons = (props) => {
                 </NavLink>
             </div>
 
-            <Line color={props.theme} />
+             <Line
+        initial={{ height: 0 }}
+        animate={{ height: mq ? "5rem" : "8rem" }}
+        color={props.theme}
+        transition={{ type: "spring", duration: 1, delay: 0.8 }}
+      />
         </Icons>
     )
 }
