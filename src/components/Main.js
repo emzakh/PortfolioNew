@@ -228,7 +228,7 @@ const Main = () => {
         </WORK>
 
         <BottomBar>
-          <ABOUT to="/about">
+          <ABOUT to="/about" click={click}>
             <motion.h2
                    whileHover={{scale:1.1}}
                    whileTap={{scale:0.9}}
