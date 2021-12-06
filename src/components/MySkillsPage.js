@@ -169,7 +169,7 @@ const MySkillsPage = () => {
         </Main>
         <Main>
           <Title>
-            <Dev width={40} height={40} /> Frontend Developer
+            <Dev width={40} height={40} /> Fullstack Developer
           </Title>
           <Description>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -178,8 +178,7 @@ const MySkillsPage = () => {
           <Description>
             <strong>Skills</strong>
             <p>
-              Html, CSS, Javascript, React, Symfony, mySQL, Api-Platform,
-              Wordpress ...
+              HTML, CSS, Javascript, PHP, React, Symfony, API-Platform, mySQL, WP, ...
             </p>
           </Description>
           <Description>
