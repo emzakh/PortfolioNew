@@ -4,6 +4,10 @@ import { lightTheme } from "./Themes";
 import styled from "styled-components";
 import { Design, Dev } from "./AllSvgs";
 
+import LogoComponent from '../subComponents/LogoComponent';
+import SocialIcons from '../subComponents/SocialIcons';
+
+
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
   width: 100vw;
@@ -27,6 +31,11 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:hover{
+      color: ${(props) => props.theme.body};
+      background-color: ${(props) => props.theme.text};
+  }
 `;
 
 const Title = styled.h2`
@@ -34,12 +43,29 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: calc(1em + 1vw);
+
+  ${Main}:hover{
+    &>*{
+        fill: ${(props) => props.theme.body};
+
+    }
+}
+&:*>:first-child{
+    margin-right: 1rem;
+}
 `;
 
 const Description = styled.div`
+
 color: ${(props) => props.theme.text};
 font-size: calc(0.6em + 1vw);
-padding:0.5rem 0;
+padding :0.5rem 0;
+${Main}:hover & { 
+  color: ${(props) => props.theme.body};
+}
+
+
+
 strong{
     margin-bottom:1rem;
     text-transform: uppercase;
@@ -55,12 +81,17 @@ const MySkillsPage = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Box>
+
+        <LogoComponent theme='light' />
+        <SocialIcons theme='light'/>
+        
+
         <Main>
           <Title>
             <Design width={40} height={40} /> Designer
           </Title>
           <Description>
-              I love to create beautiful and functional websites. I have a passion for creating clean and elegant designs. 
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quasi consequatur voluptates? 
           </Description>
           <Description>
               <strong>I like to Design</strong>
@@ -69,13 +100,19 @@ const MySkillsPage = () => {
                 <li>Mobile Apps</li>
               </ul> 
           </Description>
+          <Description>
+              <strong>Tools</strong>
+              <ul>
+                <li>Figma</li>                
+              </ul> 
+          </Description>
         </Main>
         <Main>
           <Title>
             <Dev width={40} height={40} /> Frontend Developer
           </Title>
           <Description>
-              I value business logic and user experience. My goal is to create clean and functional websites.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur praesentium mollitia a.
           </Description>
           <Description>
           <strong>Skills</strong>
@@ -83,6 +120,12 @@ const MySkillsPage = () => {
               Html, CSS, Javascript, React, Symfony, mySQL, Api-Platform, Wordpress ...
           </p>
            </Description>
+           <Description>
+              <strong>Tools</strong>
+              <ul>
+                <li>VScode, PHPStorm, Github, WAMP, ...</li>                
+              </ul> 
+          </Description>
         </Main>
       </Box>
     </ThemeProvider>
