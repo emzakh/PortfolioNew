@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./Themes";
 import styled from "styled-components";
 import { Design, Dev } from "./AllSvgs";
-
+import ParticleComponent from '../subComponents/ParticleComponent';
 import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
 
@@ -26,6 +26,7 @@ const Main = styled.div`
   height: 60vh;
   z-index: 3;
   line-height: 1.5;
+  cursor:pointer;
 
   font-famuily: "Ubuntu", monospace;
   display: flex;
@@ -83,7 +84,8 @@ const MySkillsPage = () => {
       <Box>
 
         <LogoComponent theme='light' />
-        <SocialIcons theme='light'/>
+        <SocialIcons theme='light'/> 
+        <ParticleComponent theme='light' />
         
 
         <Main>
