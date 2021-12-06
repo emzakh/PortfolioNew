@@ -464,7 +464,7 @@ export const PowerBtn = (props) => {
   
   }
   
-  export const Develope = (props) => { 
+  export const Dev = (props) => { 
     return (
       <svg
         aria-hidden="true"

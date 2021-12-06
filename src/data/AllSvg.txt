@@ -176,7 +176,7 @@ export const Design = (props) => {
 
 }
 
-export const Develope = (props) => { 
+export const Dev = (props) => { 
   return (
     <svg
       aria-hidden="true"
