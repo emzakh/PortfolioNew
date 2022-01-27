@@ -13,7 +13,7 @@ export const Work = [
         name:"Portfolio",
         description:"This portfolio, you can check the code on my github below",
         tags:["react","scss","framer-motion","styled-components"],        
-        
+        demo:"http://portfolio.massimino.be",
         github:"https://github.com/mgmaximino/PortfolioNew"
         
     },

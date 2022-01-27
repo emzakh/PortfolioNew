@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, lazy, Suspense } from "react";
 
-import styled, { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider, keyframes } from "styled-components";
+
 
 import { Mandala } from "./AllSvgs";
 import { Work } from "../data/WorkData";
@@ -57,7 +58,15 @@ const Main = styled(motion.ul)`
 
   `};
 `;
-
+const rotated = keyframes`
+from{
+    transform:rotate(0);
+    
+}
+to{
+    transform:rotate(360deg);
+}
+`
 const Rotate = styled.span`
   display: block;
   position: fixed;
@@ -65,7 +74,7 @@ const Rotate = styled.span`
   bottom: 1rem;
   width: 80px;
   height: 80px;
-
+  animation: ${rotated} infinite 5s linear;
   z-index: 1;
   ${mediaQueries(40)`
      width:60px;
