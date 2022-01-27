@@ -7,15 +7,15 @@ export const lightTheme = {
     fontFamily:"'Source Sans Pro', sans-serif",
     bodyRgba : "252, 246, 244",
     textRgba:"0,0,0",
-
 }
 
 export const darkTheme = {
     body:"#000000",
     text:"#FCF6F4",
     fontFamily:"'Source Sans Pro', sans-serif",
-    bodyRgba : "252, 246, 244",
-    textRgba:"0,0,0",
+    textRgba : "252, 246, 244",
+    bodyRgba:"0,0,0",
+
 }
 
 export const mediaQueries = key => {

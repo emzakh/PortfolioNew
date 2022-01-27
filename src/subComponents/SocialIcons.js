@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Github, Twitter, YouTube } from '../components/AllSvgs'
+import { Github, Twitter, Linkedin } from '../components/AllSvgs'
 import styled from 'styled-components'
 import {darkTheme, mediaQueries} from '../components/Themes'
 import { motion } from 'framer-motion';
@@ -95,10 +95,10 @@ const SocialIcons = (props) => {
             target="_blank"
             to={{
               pathname:
-                "https://www.youtube.com/channel/UCzadYEGdS1Rzl0wdtq8r8tg",
+                "https://www.linkedin.com/in/massimino-gutierrez-mantione/",
             }}
           >
-            <YouTube
+            <Linkedin
               width={25}
               height={25}
               fill={
