@@ -1,11 +1,18 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, mediaQueries } from "./Themes";
 import styled from "styled-components";
 import { Design, Dev } from "./AllSvgs";
-import ParticleComponent from "../subComponents/ParticleComponent";
-import LogoComponent from "../subComponents/LogoComponent";
-import SocialIcons from "../subComponents/SocialIcons";
+import Loading from "../subComponents/Loading";
+
+
+const SocialIcons = lazy(() => import("../subComponents/SocialIcons"));
+const LogoComponent = lazy(() => import("../subComponents/LogoComponent"));
+const ParticleComponent = lazy(() =>
+  import("../subComponents/ParticleComponent")
+);
+const BigTitle = lazy(() => import("../subComponents/BigTitle"));
+
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -93,7 +100,7 @@ ${mediaQueries(25)`
               }
 `};
 
-  ${Main}:hover{
+  ${Main}:hover & {
     &>*{
         fill: ${(props) => props.theme.body};
 
@@ -140,7 +147,14 @@ const Description = styled.div`
 const MySkillsPage = () => {
   return (
     <ThemeProvider theme={lightTheme}>
-      <Box>
+     <Suspense fallback={<Loading />}>
+
+     <Box
+          key="skills"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 1 } }}
+          exit={{ opacity: 0, transition: { duration: 0.5 } }}
+        >
         <LogoComponent theme="light" />
         <SocialIcons theme="light" />
         <ParticleComponent theme="light" />
@@ -150,8 +164,7 @@ const MySkillsPage = () => {
             <Design width={40} height={40} /> Designer
           </Title>
           <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-            quasi consequatur voluptates?
+            I love to design slick looking websites templates using Figma and my imagination.
           </Description>
           <Description>
             <strong>I like to Design</strong>
@@ -172,8 +185,7 @@ const MySkillsPage = () => {
             <Dev width={40} height={40} /> Fullstack Developer
           </Title>
           <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequuntur praesentium mollitia a.
+            I have a good grasp on both Back and Front-End. I learned both PHP/Symfony and JS/React.
           </Description>
           <Description>
             <strong>Skills</strong>
@@ -188,7 +200,9 @@ const MySkillsPage = () => {
             </ul>
           </Description>
         </Main>
+        <BigTitle text="Skills" top="80%" right="30%" />
       </Box>
+      </Suspense>
     </ThemeProvider>
   );
 };
